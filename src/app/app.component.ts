@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PrimeNG } from 'primeng/config';
+import { NavBarComponent } from "./views/components/nav-bar/nav-bar.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavBarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'comisionesFront';
+export class AppComponent implements OnInit{
+
+  constructor(
+    private primeng: PrimeNG
+  ){}
+  ngOnInit(): void {
+    this.primeng.ripple.set(true)
+  }
+
+
+  // title = 'comisionesFront';
 }

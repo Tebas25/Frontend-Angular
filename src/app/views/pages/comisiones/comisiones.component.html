@@ -1,0 +1,32 @@
+<form [formGroup]="consultaForm" (ngSubmit)="consultar()">
+  <div class="card flex flex-wrap justify-center items-end gap-4 pt-5">
+    <p-floatlabel>
+      <p-datepicker inputId="over_label" showIcon iconDisplay="input" formControlName="fechaInicio" />
+      <label for="over_label">Over Label</label>
+    </p-floatlabel>
+
+    <p-floatlabel>
+      <p-datepicker inputId="over_label" showIcon iconDisplay="input" formControlName="fechaFin" />
+      <label for="over_label">Over Label</label>
+    </p-floatlabel>
+
+    <p-button label="Submit" type="submit" />
+
+  </div>
+</form>
+
+<p-table [value]="comisiones" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template #header>
+    <tr>
+      <th>Nombre</th>
+      <th>Total Vendido</th>
+      <th>Comisión</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-comision>
+    <tr>
+      <td>{{ comision.nombre }}</td>
+      <td>{{ comision.vendido | currency  }}</td>
+      <td>{{ comision.comision ?? 0 | currency }}</td>
+  </ng-template>
+</p-table>
